@@ -1,8 +1,25 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './App.css';
 import ScriptTag from 'react-script-tag';
 import {Helmet} from 'react-helmet';
-function App() {
+import {connectMetaMask} from 'utils/ConnectMetamask';
+import {MainState} from 'store/types';
+import { useSelector } from 'react-redux';
+
+const App: React.FC = () => {
+
+  interface AddressState {
+    address: string;
+  }
+
+  const address = useSelector((state: MainState) => state.address);
+  // const address = useSelector(selectAddress);
+  let test;
+  useEffect(() => {
+    connectMetaMask();
+    test = address;
+    console.log('test', test);
+  },[address]);
   return (
     <div className='App'>
       <Helmet>
@@ -23,9 +40,10 @@ function App() {
               <h3><a href='http://mono.flatheme.net/'>Hodl</a></h3>
             </div>
             <div className='header-menu'>
+            <h3>Hello {console.log('logggggg',test)} </h3>
             </div>
             <button className='header-toggle'>
-              <span></span>
+              <span>Address: </span>
             </button>
 		    	</div>
 		    </div>
@@ -96,6 +114,6 @@ function App() {
       </body>
     </div>
   );
-}
+};
 
 export default App;
