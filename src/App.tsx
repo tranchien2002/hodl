@@ -17,9 +17,7 @@ const App: React.FC = () => {
   let test;
   useEffect(() => {
     connectMetaMask();
-    test = address;
-    console.log('test', test);
-  },[address]);
+  },[]);
   return (
     <div className='App'>
       <Helmet>
@@ -40,7 +38,7 @@ const App: React.FC = () => {
               <h3><a href='http://mono.flatheme.net/'>Hodl</a></h3>
             </div>
             <div className='header-menu'>
-            <h3>Hello {console.log('logggggg',test)} </h3>
+            <h3>Hello {address} </h3>
             </div>
             <button className='header-toggle'>
               <span>Address: </span>

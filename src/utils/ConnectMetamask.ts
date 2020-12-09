@@ -5,10 +5,8 @@
 
 import detectEthereumProvider from '@metamask/detect-provider';
 import Web3 from 'web3';
-import configureStore from 'store/configureStore';
+import store from 'store/configureStore';
 import { addWeb3, addAddress } from 'store/actions';
-
-const store = configureStore();
 
 export const connectMetaMask = async() => {
   // this returns the provider, or null if it wasn't detected
